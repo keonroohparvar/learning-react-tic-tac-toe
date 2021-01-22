@@ -10,6 +10,12 @@ test('should render an empty Square', () => {
     expect(button.innerHTML).toBe(''); // Line 3
   });
 
+test('should render an "X" Square', () => {
+  const square = render(<Square value={"X"} />); // Line 1
+  const button = square.getByRole('button'); // Line 2
+  expect(button.innerHTML).toBe('X'); // Line 3
+});
+
 test('should call the specified onClick when the square is clicked', () => {
     const onClick = jest.fn();
     const square = render(<Square value='X' onClick={onClick} />);
@@ -18,3 +24,4 @@ test('should call the specified onClick when the square is clicked', () => {
     fireEvent.click(button)
     expect(onClick).toHaveBeenCalledTimes(1)
 });
+
